@@ -25,19 +25,23 @@ def main():
     formatted_header_date = today.strftime(f"%A, %B {day_num}{suffix}, %Y")
 
     # Build note body content
-    note_content = f"""file_icon: ✏️
+    note_content = f"""---
+file_icon: ✏️
 tags:
     - log
     - 
-:luc_arrow_big_left: {yesterday_str} | {date_str} | {tomorrow_str} :luc_arrow_big_right:
-
-{formatted_header_date}"""
+---
+:luc_arrow_big_left: [[{yesterday_str}]] | {date_str} | [[{tomorrow_str}]] :luc_arrow_big_right:
+# {formatted_header_date}
+ 
+ 
+"""
 
     # Destination path relative to vault root
     note_path = f"Log/{date_str}.md"
 
     # Execute notesmd-cli command to create note
-    cmd = ["notesmd", "create", note_path, "-c", note_content]
+    cmd = ["/opt/homebrew/bin/notesmd-cli", "create", note_path, "-c", note_content]
 
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
