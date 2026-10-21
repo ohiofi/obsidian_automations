@@ -31,14 +31,14 @@ tags:
     - log
     - 
 ---
-:luc_arrow_big_left: [[{yesterday_str}]] | {date_str} | [[{tomorrow_str}]] :luc_arrow_big_right:
+⇦  [[{yesterday_str}]] | {date_str} | [[{tomorrow_str}]]  ⇨ 
 # {formatted_header_date}
  
  
 """
 
     # Destination path relative to vault root
-    note_path = f"Log/{date_str}.md"
+    note_path = f"01_daily_operations/log/{date_str}.md"
 
     # Execute notesmd-cli command to create note
     cmd = ["/opt/homebrew/bin/notesmd-cli", "create", note_path, "-c", note_content]
